@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import requests
 app = Flask(__name__)
 
@@ -12,7 +12,8 @@ venue_id = '4b058805f964a520fbac22e3'
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    text_to_render = 'Hello World!'
+    return render_template('hello.html', text_tag=text_to_render)
 
 
 @app.route('/request001')
