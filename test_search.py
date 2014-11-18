@@ -1,5 +1,5 @@
 import unittest
-from search import Category
+from search import Category, Venue
 
 
 class CategoryTest(unittest.TestCase):
@@ -16,6 +16,17 @@ class CategoryTest(unittest.TestCase):
     def test_category_class_should_raise_exception_if_category_does_not_exist_in_dict(self):
         undefined_category = Category('undefined')
         self.assertRaises(Exception, undefined_category)
+
+
+class VenueTest(unittest.TestCase):
+
+    def test_venue_class_instantiation_using_id_should_pass(self):
+        myvenue = Venue('4bd69f68637ba5939977f870')
+        self.assertIsInstance(myvenue, Venue)
+
+    def test_venue_class_should_save_id(self):
+        myvenue = Venue('4bd69f68637ba5939977f870')
+        self.assertEqual(myvenue.id, '4bd69f68637ba5939977f870')
 
 
 if __name__ == '__main__':

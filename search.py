@@ -15,3 +15,9 @@ class Category(object):
         else:
             self.name = name
             self.id = categories[name]
+
+
+class Venue(object):
+
+    def __init__(self, id_):
+        self.id = id_
