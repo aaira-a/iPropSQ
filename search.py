@@ -53,6 +53,7 @@ class Venue(object):
             self.response = self.fetch_info()
             self.url = self.get_venue_url(self.response.json())
             self.photo_url = self.get_photo_url(self.response.json())
+            self.name = self.get_name(self.response.json())
 
     def fetch_info(self):
         response = requests.get('https://api.foursquare.com/v2/venues/' + self.id, params=api_keys)
@@ -69,3 +70,6 @@ class Venue(object):
             return prefix + "original" + suffix
         else:
             return prefix + dimension + suffix
+
+    def get_name(self, json):
+        return json['response']['venue']['name']

@@ -66,6 +66,7 @@ class VenueTest(unittest.TestCase):
         myvenue = Venue('4bd69f68637ba5939977f870')
         self.assertEqual(myvenue.url, 'https://foursquare.com/v/ktm-komuter-mid-valley-kb01-station/4bd69f68637ba5939977f870')
         self.assertEqual(myvenue.photo_url, 'https://irs0.4sqi.net/img/general/original/5106812_NGs-bupUPe_p1isBws4p_SkBL53a4GUNu7dpL7vmTbA.jpg')
+        self.assertEqual(myvenue.name, 'KTM Komuter Mid Valley (KB01) Station')
 
     def test_venue_class_should_save_id(self):
         myvenue = Venue('4bd69f68637ba5939977f870', prefetch=False)
@@ -97,6 +98,12 @@ class VenueTest(unittest.TestCase):
         with open("fixtures/test_venue_details.json") as json_file:
             json_loaded = json.load(json_file)
             self.assertEqual(myvenue.get_photo_url(json_loaded, '300'), expected_photo_url)
+
+    def test_venue_get_name_should_return_correct_name(self):
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
+        with open("fixtures/test_venue_details.json") as json_file:
+            json_loaded = json.load(json_file)
+            self.assertEqual(myvenue.get_name(json_loaded), 'Sekolah Kebangsaan Bangsar')
 
 
 if __name__ == '__main__':
