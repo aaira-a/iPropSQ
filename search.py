@@ -33,11 +33,22 @@ class Category(object):
     def number_of_matches(self, json):
         return len(json['response']['venues'])
 
+    def extract_matches(self, json):
+        venues = []
+        for index in range(self.number_of_matches(json)):
+            venues.append(Venue(json['response']['venues'][index]['id'],
+                                distance=json['response']['venues'][index]['location']['distance'],
+                                prefetch=False)
+                          )
+        return venues
+
 
 class Venue(object):
 
-    def __init__(self, id_, prefetch=True):
+    def __init__(self, id_, distance=None, prefetch=True):
         self.id = id_
+        self.distance = distance
+
         if prefetch is True:
             self.response = self.fetch_info()
             self.url = self.get_venue_url(self.response.json())

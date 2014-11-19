@@ -31,6 +31,29 @@ class CategoryTest(unittest.TestCase):
             json_loaded = json.load(json_file)
             self.assertEqual(category.number_of_matches(json_loaded), 3)
 
+    def test_extract_matches_should_return_a_list_of_unprocessed_venues(self):
+        category = Category('elementary_school')
+        expected_venues_id = ['4cb7c677a33bb1f76f687cfd',
+                              '4f855f7ae4b0cf6febee669f',
+                              '4fb20520e4b0b9253b3d3ca0',
+                              ]
+
+        with open("fixtures/test_category_search.json") as json_file:
+            json_loaded = json.load(json_file)
+            venues_objects = (category.extract_matches(json_loaded))
+            venues_ids = [venue.id for venue in venues_objects]
+            self.assertEqual(venues_ids, expected_venues_id)
+
+    def test_extract_matches_unprocessed_venues_should_contain_distance(self):
+        category = Category('elementary_school')
+        expected_venues_distance = [768, 624, 807]
+
+        with open("fixtures/test_category_search.json") as json_file:
+            json_loaded = json.load(json_file)
+            venues_objects = (category.extract_matches(json_loaded))
+            venues_distance = [venue.distance for venue in venues_objects]
+            self.assertEqual(venues_distance, expected_venues_distance)
+
 
 class VenueTest(unittest.TestCase):
 
