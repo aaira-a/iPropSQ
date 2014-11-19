@@ -61,6 +61,12 @@ class VenueTest(unittest.TestCase):
         myvenue = Venue('4bd69f68637ba5939977f870', prefetch=False)
         self.assertIsInstance(myvenue, Venue)
 
+    @unittest.skip("minimise number of api calls")
+    def test_venue_class_instantiation_with_default_prefetch_should_pass(self):
+        myvenue = Venue('4bd69f68637ba5939977f870')
+        self.assertEqual(myvenue.url, 'https://foursquare.com/v/ktm-komuter-mid-valley-kb01-station/4bd69f68637ba5939977f870')
+        self.assertEqual(myvenue.photo_url, 'https://irs0.4sqi.net/img/general/original/5106812_NGs-bupUPe_p1isBws4p_SkBL53a4GUNu7dpL7vmTbA.jpg')
+
     def test_venue_class_should_save_id(self):
         myvenue = Venue('4bd69f68637ba5939977f870', prefetch=False)
         self.assertEqual(myvenue.id, '4bd69f68637ba5939977f870')
