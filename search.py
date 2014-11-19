@@ -24,11 +24,10 @@ class Category(object):
             self.id = categories[name]
 
     def search(self, latlong, radius):
-        response = requests.get('https://api.foursquare.com/v2/venues/search?' +
-                                'll=' + latlong +
-                                '&radius=' + radius +
-                                '&categoryId=' + self.id,
-                                params=api_keys)
+        parameters = {'ll': latlong, 'radius': radius}
+        parameters.update(api_keys)
+
+        response = requests.get('https://api.foursquare.com/v2/venues/search?', params=parameters)
         return response
 
 
