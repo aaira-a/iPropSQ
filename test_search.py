@@ -35,27 +35,27 @@ class CategoryTest(unittest.TestCase):
 class VenueTest(unittest.TestCase):
 
     def test_venue_class_instantiation_using_id_should_pass(self):
-        myvenue = Venue('4bd69f68637ba5939977f870')
+        myvenue = Venue('4bd69f68637ba5939977f870', prefetch=False)
         self.assertIsInstance(myvenue, Venue)
 
     def test_venue_class_should_save_id(self):
-        myvenue = Venue('4bd69f68637ba5939977f870')
+        myvenue = Venue('4bd69f68637ba5939977f870', prefetch=False)
         self.assertEqual(myvenue.id, '4bd69f68637ba5939977f870')
 
     @unittest.skip("minimise number of api calls")
     def test_venue_fetch_info_should_return_200(self):
-        myvenue = Venue('4cb7c677a33bb1f76f687cfd')
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
         self.assertEqual(myvenue.fetch_info().status_code, 200)
 
     def test_venue_fetch_info_should_return_url_from_json(self):
-        myvenue = Venue('4cb7c677a33bb1f76f687cfd')
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
         expected_url = 'https://foursquare.com/v/sekolah-kebangsaan-bangsar/4cb7c677a33bb1f76f687cfd'
         with open("fixtures/test_venue_details.json") as json_file:
             json_loaded = json.load(json_file)
             self.assertEqual(myvenue.get_venue_url(json_loaded), expected_url)
 
     def test_venue_get_photo_should_return_photo_url_from_json(self):
-        myvenue = Venue('4cb7c677a33bb1f76f687cfd')
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
         expected_photo_url = 'https://irs0.4sqi.net/img/general/original/6586420_CMoiV9Fy5EwoFxKuRfm2n_u7MQ86rrHuURB0NwGbV6k.jpg'
         with open("fixtures/test_venue_details.json") as json_file:
             json_loaded = json.load(json_file)

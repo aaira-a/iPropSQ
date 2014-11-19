@@ -36,8 +36,12 @@ class Category(object):
 
 class Venue(object):
 
-    def __init__(self, id_):
+    def __init__(self, id_, prefetch=True):
         self.id = id_
+        if prefetch is True:
+            self.response = self.fetch_info()
+            self.url = self.get_venue_url(self.response.json())
+            self.photo_url = self.get_photo_url(self.response.json())
 
     def fetch_info(self):
         response = requests.get('https://api.foursquare.com/v2/venues/' + self.id, params=api_keys)
