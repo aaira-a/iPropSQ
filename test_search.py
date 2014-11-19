@@ -17,6 +17,12 @@ class CategoryTest(unittest.TestCase):
         undefined_category = Category('undefined')
         self.assertRaises(Exception, undefined_category)
 
+    def test_search_api_call_using_lat_long_should_return_200(self):
+        latlong = '3.1175,101.6773'
+        radius = '1000'
+        response = Category('train_station').search(latlong, radius)
+        self.assertEqual(response.status_code, 200)
+
 
 class VenueTest(unittest.TestCase):
 
