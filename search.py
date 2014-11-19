@@ -45,3 +45,8 @@ class Venue(object):
 
     def get_venue_url(self, json):
         return json['response']['venue']['canonicalUrl']
+
+    def get_photo_url(self, json):
+        prefix = json['response']['venue']['photos']['groups'][0]['items'][0]['prefix']
+        suffix = json['response']['venue']['photos']['groups'][0]['items'][0]['suffix']
+        return prefix + "original" + suffix
