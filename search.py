@@ -38,3 +38,10 @@ class Venue(object):
 
     def __init__(self, id_):
         self.id = id_
+
+    def fetch_info(self):
+        response = requests.get('https://api.foursquare.com/v2/venues/' + self.id, params=api_keys)
+        return response
+
+    def get_venue_url(self, json):
+        return json['response']['venue']['canonicalUrl']

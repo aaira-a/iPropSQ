@@ -42,6 +42,18 @@ class VenueTest(unittest.TestCase):
         myvenue = Venue('4bd69f68637ba5939977f870')
         self.assertEqual(myvenue.id, '4bd69f68637ba5939977f870')
 
+    @unittest.skip("minimise number of api calls")
+    def test_venue_fetch_info_should_return_200(self):
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd')
+        self.assertEqual(myvenue.fetch_info().status_code, 200)
+
+    def test_venue_fetch_info_should_return_url_from_json(self):
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd')
+        expected_url = 'https://foursquare.com/v/sekolah-kebangsaan-bangsar/4cb7c677a33bb1f76f687cfd'
+        with open("fixtures/test_venue_details.json") as json_file:
+            json_loaded = json.load(json_file)
+            self.assertEqual(myvenue.get_venue_url(json_loaded), expected_url)
+
 
 if __name__ == '__main__':
     unittest.main()
