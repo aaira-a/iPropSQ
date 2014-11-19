@@ -1,5 +1,6 @@
 import unittest
 from search import Category, Venue
+import json
 
 
 class CategoryTest(unittest.TestCase):
@@ -17,11 +18,18 @@ class CategoryTest(unittest.TestCase):
         undefined_category = Category('undefined')
         self.assertRaises(Exception, undefined_category)
 
+    @unittest.skip("minimise number of api calls")
     def test_search_api_call_using_lat_long_should_return_200(self):
         latlong = '3.1175,101.6773'
         radius = '1000'
         response = Category('train_station').search(latlong, radius)
         self.assertEqual(response.status_code, 200)
+
+    def test_number_of_matches_method_should_return_correct_venue_number_from_json(self):
+        category = Category('elementary_school')
+        with open("fixtures/test_category_search.json") as json_file:
+            json_loaded = json.load(json_file)
+            self.assertEqual(category.number_of_matches(json_loaded), 3)
 
 
 class VenueTest(unittest.TestCase):

@@ -30,6 +30,9 @@ class Category(object):
         response = requests.get('https://api.foursquare.com/v2/venues/search?', params=parameters)
         return response
 
+    def number_of_matches(self, json):
+        return len(json['response']['venues'])
+
 
 class Venue(object):
 

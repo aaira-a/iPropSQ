@@ -1,0 +1,150 @@
+{
+    "meta": {
+        "code": 200
+    },
+    "response": {
+        "venues": [
+            {
+                "id": "4cb7c677a33bb1f76f687cfd",
+                "name": "Sekolah Kebangsaan Bangsar",
+                "contact": {},
+                "location": {
+                    "address": "Jalan Pantai Baru",
+                    "lat": 3.1157130065934755,
+                    "lng": 101.67062185255483,
+                    "distance": 768,
+                    "postalCode": "59100",
+                    "cc": "MY",
+                    "city": "Kuala Lumpur",
+                    "state": "Kuala Lumpur",
+                    "country": "Malaysia",
+                    "formattedAddress": [
+                        "Jalan Pantai Baru",
+                        "59100 Kuala Lumpur, Kuala Lumpur",
+                        "Malaysia"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4f4533804b9074f6e4fb0105",
+                        "name": "Elementary School",
+                        "pluralName": "Elementary Schools",
+                        "shortName": "Elementary School",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 157,
+                    "usersCount": 57,
+                    "tipCount": 3
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1416368240"
+            },
+            {
+                "id": "4f855f7ae4b0cf6febee669f",
+                "name": "Kinderland brickfields",
+                "contact": {},
+                "location": {
+                    "lat": 3.112653292184583,
+                    "lng": 101.68013182569194,
+                    "distance": 624,
+                    "cc": "MY",
+                    "country": "Malaysia",
+                    "formattedAddress": [
+                        "Malaysia"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4f4533804b9074f6e4fb0105",
+                        "name": "Elementary School",
+                        "pluralName": "Elementary Schools",
+                        "shortName": "Elementary School",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 3,
+                    "usersCount": 3,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1416368240"
+            },
+            {
+                "id": "4fb20520e4b0b9253b3d3ca0",
+                "name": "SK Bangsar",
+                "contact": {},
+                "location": {
+                    "address": "Jalan Pantai Baharu",
+                    "lat": 3.115583779042328,
+                    "lng": 101.67029393799609,
+                    "distance": 807,
+                    "cc": "MY",
+                    "country": "Malaysia",
+                    "formattedAddress": [
+                        "Jalan Pantai Baharu",
+                        "Malaysia"
+                    ]
+                },
+                "categories": [
+                    {
+                        "id": "4f4533804b9074f6e4fb0105",
+                        "name": "Elementary School",
+                        "pluralName": "Elementary Schools",
+                        "shortName": "Elementary School",
+                        "icon": {
+                            "prefix": "https://ss3.4sqi.net/img/categories_v2/building/school_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }
+                ],
+                "verified": false,
+                "stats": {
+                    "checkinsCount": 146,
+                    "usersCount": 93,
+                    "tipCount": 0
+                },
+                "specials": {
+                    "count": 0,
+                    "items": []
+                },
+                "hereNow": {
+                    "count": 0,
+                    "summary": "Nobody here",
+                    "groups": []
+                },
+                "referralId": "v-1416368240"
+            }
+        ],
+        "confident": false
+    }
+}
