@@ -1,5 +1,5 @@
 import unittest
-from search import Category, Venue
+from models import Category, Venue
 import json
 
 
