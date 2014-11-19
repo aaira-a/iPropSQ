@@ -54,12 +54,20 @@ class VenueTest(unittest.TestCase):
             json_loaded = json.load(json_file)
             self.assertEqual(myvenue.get_venue_url(json_loaded), expected_url)
 
-    def test_venue_get_photo_should_return_photo_url_from_json(self):
+    def test_venue_get_photo_url_should_return_original_dimension(self):
         myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
         expected_photo_url = 'https://irs0.4sqi.net/img/general/original/6586420_CMoiV9Fy5EwoFxKuRfm2n_u7MQ86rrHuURB0NwGbV6k.jpg'
         with open("fixtures/test_venue_details.json") as json_file:
             json_loaded = json.load(json_file)
             self.assertEqual(myvenue.get_photo_url(json_loaded), expected_photo_url)
+
+    def test_venue_get_photo_url_should_return_correct_dimension(self):
+        myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
+        dimension = '300'
+        expected_photo_url = 'https://irs0.4sqi.net/img/general/' + dimension + '/6586420_CMoiV9Fy5EwoFxKuRfm2n_u7MQ86rrHuURB0NwGbV6k.jpg'
+        with open("fixtures/test_venue_details.json") as json_file:
+            json_loaded = json.load(json_file)
+            self.assertEqual(myvenue.get_photo_url(json_loaded, '300'), expected_photo_url)
 
 
 if __name__ == '__main__':

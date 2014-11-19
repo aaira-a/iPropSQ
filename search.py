@@ -50,7 +50,11 @@ class Venue(object):
     def get_venue_url(self, json):
         return json['response']['venue']['canonicalUrl']
 
-    def get_photo_url(self, json):
+    def get_photo_url(self, json, dimension=None):
         prefix = json['response']['venue']['photos']['groups'][0]['items'][0]['prefix']
         suffix = json['response']['venue']['photos']['groups'][0]['items'][0]['suffix']
-        return prefix + "original" + suffix
+
+        if dimension is None:
+            return prefix + "original" + suffix
+        else:
+            return prefix + dimension + suffix
