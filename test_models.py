@@ -112,6 +112,12 @@ class VenueTest(unittest.TestCase):
             json_loaded = json.load(json_file)
             self.assertEqual(myvenue.get_photo_url(json_loaded, '300'), expected_photo_url)
 
+    def test_venue_get_photo_url_should_return_none_if_doesnt_exist(self):
+        myvenue = Venue('4f855f7ae4b0cf6febee669f', prefetch=False)
+        with open("fixtures/test_venue_no_photo.json") as json_file:
+            json_loaded = json.load(json_file)
+            self.assertIsNone(myvenue.get_photo_url(json_loaded))
+
     def test_venue_get_name_should_return_correct_name(self):
         myvenue = Venue('4cb7c677a33bb1f76f687cfd', prefetch=False)
         with open("fixtures/test_venue_details.json") as json_file:

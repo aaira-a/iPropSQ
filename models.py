@@ -68,8 +68,12 @@ class Venue(object):
         return json['response']['venue']['canonicalUrl']
 
     def get_photo_url(self, json, dimension=None):
-        prefix = json['response']['venue']['photos']['groups'][0]['items'][0]['prefix']
-        suffix = json['response']['venue']['photos']['groups'][0]['items'][0]['suffix']
+        try:
+            prefix = json['response']['venue']['photos']['groups'][0]['items'][0]['prefix']
+            suffix = json['response']['venue']['photos']['groups'][0]['items'][0]['suffix']
+
+        except IndexError:
+            return None
 
         if dimension is None:
             return prefix + "original" + suffix
