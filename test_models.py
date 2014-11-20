@@ -67,6 +67,18 @@ class CategoryTest(unittest.TestCase):
         initial_venues_ids = [venue.id for venue in initial_result_venues]
         self.assertEqual(initial_venues_ids, expected_venues_id)
 
+    def test_full_results_should_process_end_to_end_and_return_full_venues(self):
+        latlong = '3.1175,101.6773'
+        radius = '1000'
+        category = Category('elementary_school')
+        expected_venues_name = ['Sekolah Kebangsaan Bangsar',
+                                'Kinderland brickfields',
+                                'SK Bangsar',
+                                ]
+        full_results = category.full_results(latlong, radius)
+        full_results_name = [venue.name for venue in full_results]
+        self.assertEqual(full_results_name, expected_venues_name)
+
 
 class VenueTest(unittest.TestCase):
 

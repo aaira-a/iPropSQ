@@ -23,6 +23,15 @@ class Category(object):
             self.name = name
             self.id = categories[name]
 
+    def full_results(self, latlong, radius):
+        full_results = []
+        initial_results = self.initial_results(latlong, radius)
+
+        for venue in initial_results:
+            full_results.append(Venue(venue.id, venue.distance))
+
+        return full_results
+
     def initial_results(self, latlong, radius):
         response_from_api = self.search(latlong, radius)
         venues = self.extract_matches(response_from_api.json())
