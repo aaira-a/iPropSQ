@@ -8,6 +8,16 @@
 <table border="1">
 	<form action="{{ url_for('show_results') }}" method="POST" >
 	<tr>
+		<td>Venue type</td>
+		<td>
+			<select>
+				{% for category in categories %}
+					<option value="{{ category }}">{{ category }}</option>
+				{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
 		<td>Latitude</td>
 		<td><input type="text" name="lat"></input></td>
 	</tr>

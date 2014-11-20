@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from models import Category
+from models import Category, categories
 
 app = Flask(__name__)
 
@@ -15,12 +15,12 @@ def show_results():
     if request.method == 'GET':
         category = Category('elementary_school')
         results = category.full_results('3.1175,101.6773', '1000', topfive=False)
-        return render_template('results.html', category=category, venues=results)
+        return render_template('results.html', category=category, venues=results, categories=categories.keys())
     else:
         category = Category('mall')
         latlong = request.form['lat'] + ',' + request.form['long']
         results = category.full_results(latlong, '1000', topfive=False)
-        return render_template('results.html', category=category, venues=results)
+        return render_template('results.html', category=category, venues=results, categories=categories.keys())
 
 
 if __name__ == '__main__':
