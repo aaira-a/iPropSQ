@@ -16,10 +16,5 @@ def index():
     return render_template('index.html', text_tag=text_to_render)
 
 
-@app.route('/request001')
-def request001():
-    fetched = requests.get('https://api.foursquare.com/v2/venues/' + venue_id, params=myparams)
-    return str(fetched.json())
-
 if __name__ == '__main__':
     app.run(debug=True)
