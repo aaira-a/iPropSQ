@@ -4,6 +4,25 @@
 	<h1>Nearby {{ category.name }}</h1>
 
 <body>
+
+<table border="1">
+	<form action="{{ url_for('show_results') }}" method="POST" >
+	<tr>
+		<td>Latitude</td>
+		<td><input type="text" name="lat"></input></td>
+	</tr>
+	<tr>
+		<td>Longitude</td>
+		<td><input type="text" name="long"></input></td>
+	</tr>
+	<tr>
+		<td>&nbsp</td>
+		<td><input type="submit" value="Search !"></td>
+	</tr>
+	
+	</form>
+</table>
+<br />
 	<table border="1">
 		<thead>
 			<tr>
