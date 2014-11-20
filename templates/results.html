@@ -15,10 +15,10 @@
 		</thead>
 		{% for venue in venues %}
 			<tr>
-				<td>{{ venue.id }}</td>
+				<td><a href="{{ venue.url }}">{{ venue.id }}</a></td>
 				<td>{{ venue.name }}</td>
 				<td>{{ venue.distance }}</td>
-				<td>{{ venue.photo_url }}</td>				
+				<td><a href="{{ venue.photo_url_full }}"><img src="{{ venue.photo_url_thumb }}" /></a></td>				
 			</tr>
 		{% endfor %}
 	</table>

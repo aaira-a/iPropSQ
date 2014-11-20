@@ -66,7 +66,8 @@ class Venue(object):
         if prefetch is True:
             self.response = self.fetch_info()
             self.url = self.get_venue_url(self.response.json())
-            self.photo_url = self.get_photo_url(self.response.json())
+            self.photo_url_thumb = self.get_photo_url(self.response.json(), "128")
+            self.photo_url_full = self.get_photo_url(self.response.json())
             self.name = self.get_name(self.response.json())
 
     def fetch_info(self):
