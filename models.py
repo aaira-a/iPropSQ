@@ -9,8 +9,10 @@ api_keys = {'client_id': 'MT3VHUDOIPPIF00TPOEMOUOV550MISJG21TM0U2RUZZP42XD',
 categories = {'elementary_school': '4f4533804b9074f6e4fb0105',
               'high_school': '4bf58dd8d48988d13d941735',
               'bus_station': '4bf58dd8d48988d1fe931735',
+              'college_university': '4d4b7105d754a06372d81259',
               'train_station': '4bf58dd8d48988d129951735',
               'light_rail': '4bf58dd8d48988d1fc931735',
+              'mall': '4bf58dd8d48988d1fd941735',
               }
 
 

@@ -12,8 +12,8 @@ def index():
 
 @app.route('/results')
 def show_results():
-    category = Category('elementary_school')
-    results = category.full_results('3.1175,101.6773', '1000')
+    category = Category('college_university')
+    results = category.full_results('3.1175,101.6773', '1000', topfive=False)
     return render_template('results.html', category=category, venues=results)
 
 
