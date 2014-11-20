@@ -13,6 +13,9 @@ categories = {'elementary_school': '4f4533804b9074f6e4fb0105',
               'train_station': '4bf58dd8d48988d129951735',
               'light_rail': '4bf58dd8d48988d1fc931735',
               'mall': '4bf58dd8d48988d1fd941735',
+              'petrol_station': '4bf58dd8d48988d113951735',
+              'gym_fitness': '4bf58dd8d48988d175941735',
+              'atm': '52f2ab2ebcbc57f1066b8b56'
               }
 
 
