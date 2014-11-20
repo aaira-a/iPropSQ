@@ -17,7 +17,11 @@ def show_results():
         results = category.full_results('3.1175,101.6773', '1000', topfive=False)
         return render_template('results.html', category=category, venues=results)
     else:
-        pass
+        category = Category('mall')
+        latlong = request.form['lat'] + ',' + request.form['long']
+        results = category.full_results(latlong, '1000', topfive=False)
+        return render_template('results.html', category=category, venues=results)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
