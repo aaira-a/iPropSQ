@@ -75,7 +75,17 @@ class CategoryTest(unittest.TestCase):
                               ]
         initial_result_venues = category.initial_results(latlong, radius)
         initial_venues_ids = [venue.id for venue in initial_result_venues]
-        self.assertEqual(initial_venues_ids, expected_venues_id)
+        self.assertCountEqual(initial_venues_ids, expected_venues_id)
+
+    @unittest.skip("minimise number of api calls")
+    def test_initial_results_should_return_venues_sorted_by_users_count(self):
+        latlong = '3.1175,101.6773'
+        radius = '1000'
+        category = Category('elementary_school')
+        expected_users_count = [3, 57, 93]
+        initial_result_venues = category.initial_results(latlong, radius)
+        initial_venues_users_count = [venue.users_count for venue in initial_result_venues]
+        self.assertCountEqual(initial_venues_users_count, expected_users_count)
 
     @unittest.skip("minimise number of api calls")
     def test_full_results_should_process_end_to_end_and_return_full_venues(self):

@@ -35,6 +35,7 @@ class Category(object):
     def initial_results(self, latlong, radius):
         response_from_api = self.search(latlong, radius)
         venues = self.extract_matches(response_from_api.json())
+        venues.sort(key=lambda x: x.users_count)
         return venues
 
     def search(self, latlong, radius):
