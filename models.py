@@ -52,6 +52,7 @@ class Category(object):
         for index in range(self.number_of_matches(json)):
             venues.append(Venue(json['response']['venues'][index]['id'],
                                 distance=json['response']['venues'][index]['location']['distance'],
+                                users_count=json['response']['venues'][index]['stats']['usersCount'],
                                 prefetch=False)
                           )
         return venues
@@ -59,9 +60,10 @@ class Category(object):
 
 class Venue(object):
 
-    def __init__(self, id_, distance=None, prefetch=True):
+    def __init__(self, id_, distance=None, users_count=None, prefetch=True):
         self.id = id_
         self.distance = distance
+        self.users_count = users_count
 
         if prefetch is True:
             self.response = self.fetch_info()

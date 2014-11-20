@@ -54,6 +54,16 @@ class CategoryTest(unittest.TestCase):
             venues_distance = [venue.distance for venue in venues_objects]
             self.assertEqual(venues_distance, expected_venues_distance)
 
+    def test_extract_matches_unprocessed_venues_should_contain_users_count(self):
+        category = Category('elementary_school')
+        expected_users_count = [57, 3, 93]
+
+        with open("fixtures/test_category_search.json") as json_file:
+            json_loaded = json.load(json_file)
+            venues_objects = (category.extract_matches(json_loaded))
+            venues_users_count = [venue.users_count for venue in venues_objects]
+            self.assertEqual(venues_users_count, expected_users_count)
+
     @unittest.skip("minimise number of api calls")
     def test_initial_results_should_process_end_to_end_and_return_venues(self):
         latlong = '3.1175,101.6773'
@@ -67,6 +77,7 @@ class CategoryTest(unittest.TestCase):
         initial_venues_ids = [venue.id for venue in initial_result_venues]
         self.assertEqual(initial_venues_ids, expected_venues_id)
 
+    @unittest.skip("minimise number of api calls")
     def test_full_results_should_process_end_to_end_and_return_full_venues(self):
         latlong = '3.1175,101.6773'
         radius = '1000'
