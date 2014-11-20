@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from models import Category
 
 app = Flask(__name__)
@@ -10,12 +10,14 @@ def index():
     return render_template('index.html', text_tag=text_to_render)
 
 
-@app.route('/results')
+@app.route('/results', methods=['GET', 'POST'])
 def show_results():
-    category = Category('college_university')
-    results = category.full_results('3.1175,101.6773', '1000', topfive=False)
-    return render_template('results.html', category=category, venues=results)
-
+    if request.method == 'GET':
+        category = Category('elementary_school')
+        results = category.full_results('3.1175,101.6773', '1000', topfive=False)
+        return render_template('results.html', category=category, venues=results)
+    else:
+        pass
 
 if __name__ == '__main__':
     app.run(debug=True)
