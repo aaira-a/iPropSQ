@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from models import Category, Venue
 import requests
 app = Flask(__name__)
 
@@ -14,6 +15,12 @@ venue_id = '4b058805f964a520fbac22e3'
 def index():
     text_to_render = 'iPropSQ'
     return render_template('index.html', text_tag=text_to_render)
+
+
+@app.route('/results')
+def show_results():
+    category = Category('bus_station')
+    return render_template('results.html', category=category.name)
 
 
 if __name__ == '__main__':
