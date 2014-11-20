@@ -11,9 +11,9 @@ venue_id = '4b058805f964a520fbac22e3'
 
 
 @app.route('/')
-def hello_world():
-    text_to_render = 'Hello World!'
-    return render_template('hello.html', text_tag=text_to_render)
+def index():
+    text_to_render = 'iPropSQ'
+    return render_template('index.html', text_tag=text_to_render)
 
 
 @app.route('/request001')
