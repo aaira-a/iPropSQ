@@ -4,15 +4,21 @@
 	<h1>Nearby {{ category.name }}</h1>
 
 <body>
-	<table>
+	<table border="1">
 		<thead>
 			<tr>
-				<td>Venue</td>
+				<td>Venue ID</td>
+				<td>Name</td>
+				<td>Distance (m)</td>
+				<td>Photo</td>
 			</tr>
 		</thead>
 		{% for venue in venues %}
 			<tr>
 				<td>{{ venue.id }}</td>
+				<td>{{ venue.name }}</td>
+				<td>{{ venue.distance }}</td>
+				<td>{{ venue.photo_url }}</td>				
 			</tr>
 		{% endfor %}
 	</table>
