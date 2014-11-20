@@ -98,7 +98,7 @@ class Venue(object):
             suffix = json['response']['venue']['photos']['groups'][0]['items'][0]['suffix']
 
         except IndexError:
-            return None
+            return "http://placehold.it/128&text=no.photo"
 
         if dimension is None:
             return prefix + "original" + suffix
