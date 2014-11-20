@@ -19,8 +19,9 @@ def show_results():
     elif request.method == 'POST':
         category = Category(request.form['category'])
         latlong = request.form['lat'] + ',' + request.form['long']
-        results = category.full_results(latlong, '1000', topfive=False)
-        return render_template('results.html', category=category, venues=results, categories=categories.keys(), lat_=request.form['lat'], long_=request.form['long'])
+        radius = request.form['radius']
+        results = category.full_results(latlong, radius, topfive=False)
+        return render_template('results.html', category=category, venues=results, categories=categories.keys(), lat_=request.form['lat'], long_=request.form['long'], radius_=request.form['radius'])
 
 
 if __name__ == '__main__':
