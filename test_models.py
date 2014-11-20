@@ -98,7 +98,29 @@ class CategoryTest(unittest.TestCase):
                                 ]
         full_results = category.full_results(latlong, radius)
         full_results_name = [venue.name for venue in full_results]
-        self.assertEqual(full_results_name, expected_venues_name)
+        self.assertCountEqual(full_results_name, expected_venues_name)
+
+    def test_select_top_five_should_only_return_five_venues(self):
+        category = Category('elementary_school')
+        venue1 = Venue('1', prefetch=False)
+        venue2 = Venue('2', prefetch=False)
+        venue3 = Venue('3', prefetch=False)
+        venue4 = Venue('4', prefetch=False)
+        venue5 = Venue('6', prefetch=False)
+        venue6 = Venue('6', prefetch=False)
+        venues = [venue1, venue2, venue3, venue4, venue5, venue6]
+        new_venues = category.select_top_five(venues)
+        self.assertEqual(len(new_venues), 5)
+
+    def test_select_top_five_should_only_return_original_list_if_length_is_four_or_less(self):
+        category = Category('elementary_school')
+        venue1 = Venue('1', prefetch=False)
+        venue2 = Venue('2', prefetch=False)
+        venue3 = Venue('3', prefetch=False)
+        venue4 = Venue('4', prefetch=False)
+        venues = [venue1, venue2, venue3, venue4]
+        new_venues = category.select_top_five(venues)
+        self.assertEqual(len(new_venues), 4)
 
 
 class VenueTest(unittest.TestCase):

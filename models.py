@@ -23,14 +23,24 @@ class Category(object):
             self.name = name
             self.id = categories[name]
 
-    def full_results(self, latlong, radius):
+    def full_results(self, latlong, radius, topfive=False):
         full_results = []
         initial_results = self.initial_results(latlong, radius)
+
+        if topfive is True:
+            initial_results = self.select_top_five(initial_results)
+
+        initial_results.sort(key=lambda x: x.distance)
 
         for venue in initial_results:
             full_results.append(Venue(venue.id, venue.distance))
 
         return full_results
+
+    def select_top_five(self, venues):
+        if len(venues) > 5:
+            venues = venues[0:5]
+        return venues
 
     def initial_results(self, latlong, radius):
         response_from_api = self.search(latlong, radius)
