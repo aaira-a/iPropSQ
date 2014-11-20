@@ -10,7 +10,7 @@
 	<tr>
 		<td>Venue type</td>
 		<td>
-			<select>
+			<select name="category">
 				{% for category in categories %}
 					<option value="{{ category }}">{{ category }}</option>
 				{% endfor %}
@@ -19,11 +19,11 @@
 	</tr>
 	<tr>
 		<td>Latitude</td>
-		<td><input type="text" name="lat"></input></td>
+		<td><input type="text" name="lat" value="{{ lat_ }}"></input></td>
 	</tr>
 	<tr>
 		<td>Longitude</td>
-		<td><input type="text" name="long"></input></td>
+		<td><input type="text" name="long" value="{{ long_ }}"></input></td>
 	</tr>
 	<tr>
 		<td>&nbsp</td>

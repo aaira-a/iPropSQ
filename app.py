@@ -16,11 +16,11 @@ def show_results():
         category = Category('elementary_school')
         results = category.full_results('3.1175,101.6773', '1000', topfive=False)
         return render_template('results.html', category=category, venues=results, categories=categories.keys())
-    else:
-        category = Category('mall')
+    elif request.method == 'POST':
+        category = Category(request.form['category'])
         latlong = request.form['lat'] + ',' + request.form['long']
         results = category.full_results(latlong, '1000', topfive=False)
-        return render_template('results.html', category=category, venues=results, categories=categories.keys())
+        return render_template('results.html', category=category, venues=results, categories=categories.keys(), lat_=request.form['lat'], long_=request.form['long'])
 
 
 if __name__ == '__main__':
