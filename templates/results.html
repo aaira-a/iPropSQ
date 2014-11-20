@@ -1,3 +1,20 @@
 <!doctype html>
-<title>Nearby {{ category }}</title>
-	<h1>Nearby {{ category }}</h1>
+<title>Nearby {{ category.name }}</title>
+
+	<h1>Nearby {{ category.name }}</h1>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td>Venue</td>
+			</tr>
+		</thead>
+		{% for venue in venues %}
+			<tr>
+				<td>{{ venue.id }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+</body>

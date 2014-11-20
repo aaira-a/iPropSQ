@@ -1,6 +1,6 @@
 from flask import Flask, render_template
-from models import Category, Venue
-import requests
+from models import Category
+
 app = Flask(__name__)
 
 
@@ -20,7 +20,8 @@ def index():
 @app.route('/results')
 def show_results():
     category = Category('bus_station')
-    return render_template('results.html', category=category.name)
+    initial_venues = category.initial_results('3.1175,101.6773', '1000')
+    return render_template('results.html', category=category, venues=initial_venues)
 
 
 if __name__ == '__main__':
