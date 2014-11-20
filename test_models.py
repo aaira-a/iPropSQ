@@ -54,6 +54,19 @@ class CategoryTest(unittest.TestCase):
             venues_distance = [venue.distance for venue in venues_objects]
             self.assertEqual(venues_distance, expected_venues_distance)
 
+    @unittest.skip("minimise number of api calls")
+    def test_initial_results_should_process_end_to_end_and_return_venues(self):
+        latlong = '3.1175,101.6773'
+        radius = '1000'
+        category = Category('elementary_school')
+        expected_venues_id = ['4cb7c677a33bb1f76f687cfd',
+                              '4f855f7ae4b0cf6febee669f',
+                              '4fb20520e4b0b9253b3d3ca0',
+                              ]
+        initial_result_venues = category.initial_results(latlong, radius)
+        initial_venues_ids = [venue.id for venue in initial_result_venues]
+        self.assertEqual(initial_venues_ids, expected_venues_id)
+
 
 class VenueTest(unittest.TestCase):
 
