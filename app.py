@@ -27,7 +27,8 @@ def show_results():
                                categories=categories.keys(),
                                lat_=request.form['lat'],
                                long_=request.form['long'],
-                               radius_=request.form['radius']
+                               radius_=request.form['radius'],
+                               selected=request.form['category']
                                )
 
 

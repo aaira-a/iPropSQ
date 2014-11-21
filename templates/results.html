@@ -12,7 +12,7 @@
 		<td>
 			<select name="category">
 				{% for category in categories %}
-					<option value="{{ category }}">{{ category }}</option>
+					<option value="{{ category }}" {% if selected == category %}selected="selected"{% endif %}>{{ category }}</option>
 				{% endfor %}
 			</select>
 		</td>
