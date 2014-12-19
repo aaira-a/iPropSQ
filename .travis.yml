@@ -4,6 +4,6 @@ python:
 
 install: "pip install -r requirements.txt"
 
-script: "coverage run test_models.py"
+script: "coverage run --include=models.py test_models.py"
 
 after_success: "coveralls"
